@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<wicket:panel>
+<h2 wicket:id="menuName">2000-11-11 午餐</h2>
+<div wicket:id="menuComment">Menu comment.</div>
+<h2><span wicket:id="totalQuantity">0</span>個便當，共計<span wicket:id="totalPrice">0</span>元</h2>
+
+<form wicket:id="orderForm">
+<table>
+<tr>
+  <td colspan="4" align="right">
+    <input type="reset" value="取消" />
+    <input type="submit" value="確定" />
+  </td>
+</tr>
+<tr>
+  <th align="left">廠商</th>
+  <th align="left">餐點名稱</th>
+  <th style="padding-right: 1em; text-align: right;">價格</th>
+  <th align="left">數量</th>
+</tr>
+<tr wicket:id="menuItems">
+  <td style="padding-right: 1em" wicket:id="provider">Provider</td>
+  <td style="padding-right: 1em" wicket:id="product">Product</td>
+  <td style="padding-right: 1em; text-align: right;" wicket:id="price">100</td>
+  <td>
+    <select wicket:id="quantity">
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+  </td>
+</tr>
+<tr>
+  <td colspan="4" align="right">
+    <input type="reset" value="取消" />
+    <input type="submit" value="確定" />
+  </td>
+</tr>
+</table>
+</form>
+</wicket:panel>
+</body>
+
+</html>

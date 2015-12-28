@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<wicket:extend>
+<h2>新增菜單</h2>
+
+<form wicket:id="menuForm">
+<p>
+  <div>日期</div>
+  <div><input type="text" wicket:id="date" /></div>
+</p>
+<p>
+  <div>餐別</div>
+  <div>
+    <select wicket:id="menuType">
+      <option value="lunch">午餐</option>
+      <option value="dinner">晚餐</option>
+    </select>
+  </div>
+</p>
+<p>
+  <div>備註</div>
+  <div>
+    <textarea rows="4" cols="40" wicket:id="menuComment"></textarea>
+  </div>
+</p>
+<p>
+  <div><input type="submit" value="新增" /></div>
+</p>
+</form>
+</wicket:extend>
+</body>
+
+</html>

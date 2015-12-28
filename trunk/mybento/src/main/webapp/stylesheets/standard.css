@@ -1,0 +1,107 @@
+html, body {
+  text-align: center;
+}
+
+body, div {
+  margin: 0;
+  padding: 0;
+  font-size: 9pt;
+}
+
+table {
+  font-size: 9pt;
+}
+
+a {
+  color: #336A30;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+#container {
+  position: relative;
+  margin: 0 auto;
+  width: 800px;
+  border: 1px solid black;
+  text-align: left;
+}
+
+#header, #content, #footer {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+#header {
+  color: white;
+  background-color: black;
+  padding-left: 1em;
+}
+
+#header #signInPanel {
+  font-size: 9pt;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#header a {
+  color: white;
+  text-decoration: none;
+}
+
+#menubar {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 1.4em;
+  width: 100%;
+}
+
+#menubar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menubar li {
+  float: left;
+  text-align: center;
+  margin: 0 4px;
+}
+
+#feedback ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 2px 1em;
+  background-color: yellow;
+}
+
+#content {
+  padding: 1em;
+}
+
+#footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+form fieldset {padding: 0.5em;}
+
+form .row input {display: block;}
+
+form .row {padding-bottom: 0.5em;}
+
+form .fieldWithErrors input {
+  border-style: solid;
+  border-color: red;
+}
+
+form .formError {color: red;}
+
+form input, form select, form textarea {
+  border: 1px solid gray;	
+}

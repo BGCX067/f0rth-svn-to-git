@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheets/standard.css"/>
+  <title wicket:id="pageTitle">Home</title>
+</head>
+
+<body>
+<div id="container">
+
+<div id="header">
+  <h1 id="siteName"><a wicket:id="homeLink" href="HomePage.html">訂便當</a></h1>
+  <div id="signInPanel" wicket:id="signInPanel">登入 | 註冊</div>
+</div><!-- end of header -->
+
+<div id="menubar" wicket:id="menuBar">
+<ul>
+  <li>訂餐</li>
+  <li>菜單</li>
+</ul>
+</div><!-- end of menubar -->
+
+<div id="feedback" wicket:id="feedback">
+</div><!--  end of feedback -->
+
+<div id="content">
+  <wicket:child/>
+</div><!-- end of content -->
+
+<div id="footer">
+  精品科技股份有限公司
+</div><!-- end of footer -->
+
+</div><!-- end of containter -->
+</body>
+
+</html>

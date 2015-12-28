@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<wicket:extend>
+<h2><span wicket:id="year">2000</span>年<span wicket:id="month">12</span>月</h2>
+<p style="color: blue">會計期間為上個月26日至本月25日，不含加班晚餐。</p>
+<table>
+<tr>
+  <th align="left">帳號</th>
+  <th align="left">姓名</th>
+  <th align="right">數量</th>
+  <th align="right">小計</th>
+</tr>
+<tr wicket:id="items">
+  <td wicket:id="userName"></td>
+  <td wicket:id="displayName"></td>
+  <td align="right" wicket:id="quantity"></td>
+  <td align="right" wicket:id="subtotal"></td>
+</tr>
+<tr>
+  <td></td>
+  <td align="right">總計</td>
+  <td align="right" wicket:id="totalQuantity"></td>
+  <td align="right" wicket:id="totalSubtotal"></td>
+</tr>
+</table>
+</wicket:extend>
+</body>
+
+</html>

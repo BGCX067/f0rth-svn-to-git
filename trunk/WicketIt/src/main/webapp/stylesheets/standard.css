@@ -1,0 +1,53 @@
+body, div {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #336A30;
+  text-decoration: none;
+}
+
+a:hover {text-decoration: underline;}
+
+#container {
+  position: relative;
+  margin: 0 auto;
+  width: 980px;
+}
+
+#header {
+  color: white;
+  background-color: #338833;
+}
+
+#header #siteName {
+  font-size: 32pt;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+#header #signInPanel {
+  font-size: 9pt;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#header a {
+  color: white;
+  text-decoration: none;
+}
+
+form fieldset {padding: 0.5em;}
+
+form .row input {display: block;}
+
+form .row {padding-bottom: 0.5em;}
+
+form .fieldWithErrors input {
+  border-style: solid;
+  border-color: red;
+}
+
+form .formError {color: red;}

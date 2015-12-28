@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<wicket:extend>
+<h2>修改菜單: <span wicket:id="menuName">菜單名稱</span></h2>
+
+<form wicket:id="menuForm">
+<p>
+  <div>備註</div>
+  <div>
+    <textarea rows="4" cols="40" wicket:id="comment"></textarea>
+  </div>
+</p>
+<p>
+  <table>
+    <tr>
+      <th>刪除</th>
+      <th align="left">廠商</th>
+      <th align="left">餐點名稱</th>
+      <th align="left">價格</th>
+    </tr>
+    <tr wicket:id="menuItems">
+      <td><input type="checkbox" wicket:id="selected" /></td>
+      <td wicket:id="provider"></td>
+      <td><input type="text" wicket:id="product" /></td>
+      <td><input type="text" size="4" wicket:id="price" /></td>
+    </tr>
+  </table>
+</p>
+<p>
+  <div>新增餐點</div>
+  <div>
+    <select wicket:id="newProvider">
+      <option>食用狗</option>
+      <option>咬人貓</option>
+    </select>
+  </div>
+</p>
+<p>
+  <div><input type="submit" value="儲存" /></div>
+</p>
+</form>
+</wicket:extend>
+</body>
+
+</html>

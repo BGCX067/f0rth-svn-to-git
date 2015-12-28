@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<tx:annotation-driven proxy-target-class="true" />
+
+	<bean id="ldapService" class="service.LdapService">
+		<property name="ldapConfig" ref="configFile" />
+	</bean>
+
+	<bean id="menuService" class="service.MenuService">
+		<property name="menuDao" ref="menuDao" />
+		<property name="menuItemDao" ref="menuItemDao" />
+		<property name="providerDao" ref="providerDao" />
+	</bean>
+
+	<bean id="orderService" class="service.OrderService">
+		<property name="menuDao" ref="menuDao" />
+		<property name="menuItemDao" ref="menuItemDao" />
+		<property name="orderDao" ref="orderDao" />
+	</bean>
+
+	<bean id="providerService" class="service.ProviderService">
+		<property name="productDao" ref="productDao" />
+		<property name="providerDao" ref="providerDao" />
+	</bean>
+
+	<bean id="userService" class="service.UserService">
+		<property name="userDao" ref="userDao" />
+		<property name="ldapService" ref="ldapService" />
+	</bean>
+</beans>

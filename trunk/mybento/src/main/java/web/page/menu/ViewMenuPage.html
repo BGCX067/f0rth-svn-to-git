@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<wicket:extend>
+<h2 wicket:id="menuName"></h2>
+<table cellspacing="0" cellpadding="4" rules="rows" frame="hsides">
+<thead>
+<tr>
+  <th align="left">廠商</th>
+  <th align="left">餐點名稱</th>
+  <th align="right">價格</th>
+  <th align="right">數量</th>
+  <th align="left">已付款</th>
+  <th align="left">未付款</th>
+</tr>
+</thead>
+<tbody wicket:id="providers">
+<tr valign="top" wicket:id="products">
+  <td wicket:id="provider"></td>
+  <td wicket:id="product"></td>
+  <td align="right" wicket:id="price"></td>
+  <td align="right" wicket:id="quantity"></td>
+  <td>
+    <div wicket:id="paidUsers">
+      <div><a href="#" wicket:id="markUnpaidLink"><span wicket:id="paidUser">user</span></a></div>
+    </div>
+  </td>
+  <td>
+    <div wicket:id="unpaidUsers">
+      <div><a href="#" wicket:id="markPaidLink"><span wicket:id="unpaidUser">user</span></a></div>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td></td>
+  <td>小計</td>
+  <td align="right" wicket:id="sumOfPrice"></td>
+  <td align="right" wicket:id="sumOfQuantity"></td>
+  <td></td>
+  <td></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td></td>
+<td>總計</td>
+<td align="right" wicket:id="totalPrice"></td>
+<td align="right" wicket:id="totalQuantity"></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</wicket:extend>
+</body>
+
+</html>

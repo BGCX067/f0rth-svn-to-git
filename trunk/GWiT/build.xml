@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="bento" default="all" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+	<property environment="env" />
+	<property name="build.dir" value="target" />
+	<property name="build.dist.dir" value="${build.dir}/dist" />
+	<property name="build.main.dir" value="${build.dir}/classes" />
+	<property name="build.gwt.dir" value="${build.dir}/gwt" />
+	<property name="build.lib.dir" value="${build.dir}/lib" />
+	<property name="build.test.dir" value="${build.dir}/test" />
+	<property name="build.test.output.dir" value="${build.dir}/test-output" />
+	<property name="build.test.report.dir" value="${build.dir}/test-report" />
+	<property name="src.dir" value="src/main/java" />
+	<property name="web.dir" value="src/main/webapp" />
+	<property name="test.dir" value="src/main/test" />
+
+	<condition property="os" value="mac">
+		<os family="mac" />
+	</condition>
+
+	<condition property="os" value="windows">
+		<os family="windows" />
+	</condition>
+
+	<typedef uri="urn:maven-artifact-ant" resource="org/apache/maven/artifact/ant/antlib.xml" />
+
+	<artifact:dependencies filesetId="compile.jars" useScope="compile">
+		<pom file="pom.xml" />
+	</artifact:dependencies>
+
+	<artifact:dependencies filesetId="runtime.jars" useScope="runtime">
+		<pom file="pom.xml" />
+	</artifact:dependencies>
+
+	<path id="classpath">
+		<pathelement location="${env.GWT_HOME}/gwt-user.jar" />
+		<pathelement location="${env.GWT_HOME}/gwt-dev-${os}.jar" />
+		<pathelement location="${src.dir}" />
+		<pathelement location="${build.main.dir}" />
+		<pathelement location="${build.test.dir}" />
+		<fileset refid="compile.jars" />
+	</path>
+
+	<target name="prepare">
+		<mkdir dir="${build.dist.dir}" />
+		<mkdir dir="${build.main.dir}" />
+		<mkdir dir="${build.gwt.dir}" />
+		<mkdir dir="${build.lib.dir}" />
+		<mkdir dir="${build.test.dir}" />
+		<mkdir dir="${build.test.output.dir}" />
+		<mkdir dir="${build.test.report.dir}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="compile" depends="prepare">
+		<javac source="1.5" target="1.5" srcdir="${src.dir}" destdir="${build.main.dir}" encoding="UTF-8" debug="true">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<target name="compile-test" depends="compile">
+		<javac source="1.5" target="1.5" srcdir="${test.dir}" destdir="${build.test.dir}" encoding="UTF-8" debug="true">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="${build.dist.dir}/bento.jar">
+			<fileset dir="${src.dir}" />
+			<fileset dir="${build.main.dir}" />
+		</jar>
+	</target>
+
+	<target name="war" depends="jar, gwt">
+		<copy todir="${build.lib.dir}" flatten="true">
+			<fileset refid="runtime.jars" />
+		</copy>
+		<jar destfile="${build.dist.dir}/bento.war">
+			<fileset dir="${web.dir}" />
+			<zipfileset file="${build.dist.dir}/bento.jar" prefix="WEB-INF/lib" />
+			<zipfileset dir="${build.lib.dir}" prefix="WEB-INF/lib" />
+			<zipfileset dir="${build.gwt.dir}" excludes=".gwt-tmp/" />
+		</jar>
+	</target>
+
+	<target name="gwt">
+		<java classname="com.google.gwt.dev.GWTCompiler" fork="true" maxmemory="256m">
+			<arg value="-out" />
+			<arg value="${build.gwt.dir}" />
+			<arg value="bento.BentoApp" />
+			<classpath refid="classpath" />
+		</java>
+	</target>
+
+	<target name="i18n">
+		<java classname="com.google.gwt.i18n.tools.I18NSync" fork="true" maxmemory="256m">
+			<arg value="-out" />
+			<arg value="${src.dir}" />
+			<arg value="bento.client.BentoConstants" />
+			<classpath refid="classpath" />
+		</java>
+	</target>
+
+	<target name="shell" depends="compile">
+		<java classname="com.google.gwt.dev.GWTShell" fork="true" maxmemory="256m">
+			<jvmarg value="-Xdebug" />
+			<jvmarg value="-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000" />
+			<arg value="-out" />
+			<arg value="${build.gwt.dir}" />
+			<arg value="bento.BentoApp/BentoApp.html" />
+			<classpath refid="classpath" />
+		</java>
+	</target>
+
+	<target name="jetty">
+		<java classname="bento.util.JettyServer" fork="true" maxmemory="256m">
+			<jvmarg value="-Xdebug" />
+			<jvmarg value="-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000" />
+			<classpath>
+				<pathelement location="${build.dist.dir}/bento.jar" />
+				<fileset refid="compile.jars" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="all" depends="war" />
+</project>

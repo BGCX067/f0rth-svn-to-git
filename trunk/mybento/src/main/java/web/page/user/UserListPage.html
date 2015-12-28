@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<wicket:extend>
+<table wicket:id="users"></table>
+
+<wicket:fragment wicket:id="confirm">
+<a href="#" wicket:id="confirmLink"><wicket:message key="confirm">Confirm</wicket:message></a> |
+<a href="#" wicket:id="cancelLink"><wicket:message key="cancel">Cancel</wicket:message></a> 
+</wicket:fragment>
+
+<wicket:fragment wicket:id="delete">
+<a href="#" wicket:id="deleteLink"><wicket:message key="delete">Delete</wicket:message></a>
+</wicket:fragment>
+
+</wicket:extend>
+</body>
+
+</html>

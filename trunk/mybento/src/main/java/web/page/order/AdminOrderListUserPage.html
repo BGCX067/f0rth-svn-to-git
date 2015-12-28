@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<wicket:extend>
+<h2>選擇代訂者</h2>
+<a href="#" wicket:id="importUsers">匯入新帳號</a>
+<form wicket:id="filterForm">
+  <p>
+    <div>搜尋帳號和姓名</div>
+    <div><input type="text" wicket:id="filterName" /></div>
+  </p>
+</form>
+<table>
+  <tr>
+    <th>帳號</th>
+    <th>姓名</th>
+    <th>代訂</th>
+  </tr>
+  <tr wicket:id="items">
+    <td wicket:id="userName">Forth</td>
+    <td wicket:id="displayName">食用狗</td>
+    <td><a href="#" wicket:id="adminOrderLink">代訂</a></td>
+  </tr>
+</table>
+</wicket:extend>
+</body>
+
+</html>

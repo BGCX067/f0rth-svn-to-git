@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheets/standard.css"/>
+  <title wicket:id="pageTitle">Home</title>
+</head>
+
+<body>
+<div id="container">
+  <div id="header">
+    <span id="siteName"><a wicket:id="homeLink" href="HomePage.html">WicketIt</a></span>
+    <div id="signInPanel" wicket:id="signInPanel">登入 | 註冊</div>
+  </div>
+  <!--  end of header -->
+  <div id="content">
+    <span wicket:id="feedback"></span>
+    <wicket:child/>
+  </div>
+  <!--  end of content -->
+  <div id="footer">
+  </div>
+  <!--  end of footer -->
+</div>
+</body>
+
+</html>

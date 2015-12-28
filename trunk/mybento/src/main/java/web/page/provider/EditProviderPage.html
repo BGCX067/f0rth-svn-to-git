@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<wicket:extend>
+<h2>修改廠商</h2>
+
+<form wicket:id="providerForm">
+<p>
+  <div>廠商名稱</div>
+  <div>
+    <input type="text" wicket:id="name" />
+  </div>
+</p>
+<p>
+  <div>電話號碼</div>
+  <div>
+    <input type="text" wicket:id="phone" />
+  </div>
+</p>
+<p>
+  <div>地址</div>
+  <div>
+    <input type="text" wicket:id="address" />
+  </div>
+</p>
+<p>
+  <table>
+    <tr>
+      <th>刪除</th>
+      <th align="left">餐點名稱</th>
+      <th align="left">價格</th>
+    </tr>
+    <tr wicket:id="products">
+      <td><input type="checkbox" wicket:id="selected" /></td>
+      <td><input type="text" wicket:id="productName" /></td>
+      <td><input type="text" size="4" wicket:id="price" /></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="text" wicket:id="newProductName" /></td>
+      <td><input type="text" size="4" wicket:id="newPrice" /></td>
+    </tr>
+  </table>
+</p>
+<p>
+  <div><input type="submit" value="儲存" /></div>
+</p>
+</form>
+</wicket:extend>
+</body>
+
+</html>

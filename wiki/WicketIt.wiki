@@ -1,0 +1,7 @@
+= Introduction =
+
+A wicket project template.
+
+= Details =
+
+WicketIt is a project template that wired together Wicket, Spring, Hibernate, and Proxool. A simple build.xml is also provided so that one can create war file with ant command. Basically, everything required to configure a deployment-ready wicket web application is done. 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<wicket:panel>
+  <wicket:enclosure child="signInLink">
+    <a wicket:id="signInLink" href="SignInPage.html">登入</a> |
+    <a wicket:id="signUpLink" href="SignUpPage.html">註冊</a>
+  </wicket:enclosure>
+  <wicket:enclosure child="signOutLink">
+    <span wicket:id="userName">UserName</span> |
+    <a wicket:id="signOutLink" href="SignOutPage.html">登出</a>
+  </wicket:enclosure>
+</wicket:panel>
+</body>
+
+</html>
